@@ -21,6 +21,7 @@ fun HomeScreen(){
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview(){
-    HomeScreen()
+    HomeScreen() //The function has to be called for the screen to be viewed
 
 }
+
