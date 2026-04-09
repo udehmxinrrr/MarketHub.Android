@@ -37,11 +37,16 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.udeh.markethub.R
 import com.udeh.markethub.ui.theme.newgreen
+import com.udeh.markethub.ui.theme.purple
 
 @Composable
-fun LoginScreen(){
+fun LoginScreen(navController: NavController){
+
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -61,7 +66,7 @@ fun LoginScreen(){
             text= "Welcome Back!",
             fontSize = 20.sp,
             fontWeight = FontWeight.ExtraBold,
-            color = Color.Black,
+            color = purple,
 
             )
 
@@ -74,13 +79,18 @@ fun LoginScreen(){
             value = email,
             onValueChange = { email = it },
             modifier = Modifier.width(350.dp),
-            leadingIcon = { Icon(imageVector = Icons.Default.Person, contentDescription = "") },
-            label = { Text(text = "Enter Your Email") },
+            leadingIcon = { Icon(
+                imageVector = Icons.Default.Person,
+                contentDescription = ""
+            ) },
+            label = { Text(text = "Enter Your Email",
+                            fontWeight = FontWeight.ExtraBold,
+                            color = Color.Black) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
             colors = OutlinedTextFieldDefaults.colors(
-                unfocusedBorderColor = newgreen,
+                unfocusedBorderColor = purple,
                 focusedBorderColor = Color.Black,
-                unfocusedLeadingIconColor = newgreen,
+                unfocusedLeadingIconColor = purple,
             )
 
         )
@@ -90,12 +100,14 @@ fun LoginScreen(){
             onValueChange = { password = it },
             modifier = Modifier.width(350.dp),
             leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "") },
-            label = { Text(text = "Create a Password") },
+            label = { Text(text = "Enter Your Password",
+                        fontWeight = FontWeight.ExtraBold,
+                        color = Color.Black) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
             colors = OutlinedTextFieldDefaults.colors(
-                unfocusedBorderColor = newgreen,
+                unfocusedBorderColor = purple,
                 focusedBorderColor = Color.Black,
-                unfocusedLeadingIconColor = newgreen,
+                unfocusedLeadingIconColor = purple,
             ),
             visualTransformation = PasswordVisualTransformation()
 
@@ -104,7 +116,7 @@ fun LoginScreen(){
 
         Button(
             onClick = {},
-            colors = ButtonDefaults.buttonColors(newgreen),
+            colors = ButtonDefaults.buttonColors(purple),
             shape = RoundedCornerShape(18.dp),
             modifier = Modifier.width(350.dp),
 
@@ -114,7 +126,11 @@ fun LoginScreen(){
         }
 
         TextButton(onClick = {}) {
-            Text(text = "Don't have an Account? Register.")
+            Text(text = "Don't have an Account? Register.",
+                color = purple,
+                fontWeight = FontWeight.ExtraBold,
+            )
+
 
         }
     }
@@ -124,6 +140,6 @@ fun LoginScreen(){
 @Preview(showBackground = true)
 @Composable
 fun LoginScreenPreview(){
-    LoginScreen()
+    LoginScreen(rememberNavController())
 
 }

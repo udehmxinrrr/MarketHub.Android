@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
@@ -42,13 +43,17 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.udeh.markethub.R
 import com.udeh.markethub.ui.theme.newgreen
 import com.udeh.markethub.ui.theme.purple
 import kotlin.coroutines.Continuation
 
 @Composable
-fun RegisterScreen(){
+fun RegisterScreen(navController: NavController){
+
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -68,7 +73,7 @@ fun RegisterScreen(){
             text= "Join Us and Start Your Journey Today",
             fontSize = 20.sp,
             fontWeight = FontWeight.ExtraBold,
-            color = Color.Green,
+            color = purple,
 
             )
 
@@ -85,12 +90,14 @@ fun RegisterScreen(){
             onValueChange = { username = it },
             modifier = Modifier.width(350.dp),
             leadingIcon = { Icon(imageVector = Icons.Default.Person, contentDescription = "") },
-            label = { Text(text = "Enter Your Username") },
+            label = { Text(text = "Enter Your Username",
+                fontWeight = FontWeight.ExtraBold,
+                color = Color.Black) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
             colors = OutlinedTextFieldDefaults.colors(
-                unfocusedBorderColor = newgreen,
+                unfocusedBorderColor = purple,
                 focusedBorderColor = Color.Black,
-                unfocusedLeadingIconColor = newgreen,
+                unfocusedLeadingIconColor = purple,
             )
 
         )
@@ -99,13 +106,15 @@ fun RegisterScreen(){
             value = email,
             onValueChange = { email = it },
             modifier = Modifier.width(350.dp),
-            leadingIcon = { Icon(imageVector = Icons.Default.Person, contentDescription = "") },
-            label = { Text(text = "Enter Your Email") },
+            leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription = "") },
+            label = { Text(text = "Enter Your Email",
+                fontWeight = FontWeight.ExtraBold,
+                color = Color.Black) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
             colors = OutlinedTextFieldDefaults.colors(
-                unfocusedBorderColor = newgreen,
-                focusedBorderColor = Color.Black,
-                unfocusedLeadingIconColor = newgreen,
+                unfocusedBorderColor = purple,
+                focusedBorderColor = purple,
+                unfocusedLeadingIconColor = purple,
             )
 
         )
@@ -115,12 +124,14 @@ fun RegisterScreen(){
             onValueChange = { password = it },
             modifier = Modifier.width(350.dp),
             leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "") },
-            label = { Text(text = "Create a Password") },
+            label = { Text(text = "Create a Password",
+                fontWeight = FontWeight.ExtraBold,
+                color = Color.Black) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
             colors = OutlinedTextFieldDefaults.colors(
-                unfocusedBorderColor = newgreen,
+                unfocusedBorderColor = purple,
                 focusedBorderColor = Color.Black,
-                unfocusedLeadingIconColor = newgreen,
+                unfocusedLeadingIconColor = purple,
             ),
             visualTransformation = PasswordVisualTransformation()
 
@@ -131,12 +142,14 @@ fun RegisterScreen(){
             onValueChange = { confirmpassword = it },
             modifier = Modifier.width(350.dp),
             leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "") },
-            label = { Text(text = "Repeat your Password") },
+            label = { Text(text = "Repeat your Password",
+                fontWeight = FontWeight.ExtraBold,
+                color = Color.Black) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
             colors = OutlinedTextFieldDefaults.colors(
                 unfocusedBorderColor = purple,
                 focusedBorderColor = Color.Black,
-                unfocusedLeadingIconColor = newgreen,
+                unfocusedLeadingIconColor = purple,
             ),
             visualTransformation = PasswordVisualTransformation()
 
@@ -145,17 +158,21 @@ fun RegisterScreen(){
 
         Button(
             onClick = {},
-            colors = ButtonDefaults.buttonColors(newgreen),
+            colors = ButtonDefaults.buttonColors(purple),
             shape = RoundedCornerShape(18.dp),
             modifier = Modifier.width(350.dp),
 
 
+
         ) {
-            Text(text = "Register")
+            Text(text = "Register",
+            )
         }
 
         TextButton(onClick = {}) {
-            Text(text = "Already have an Account? Login.")
+            Text(text = "Already have an Account? Login.",
+                color = purple,
+                fontWeight = FontWeight.ExtraBold,)
 
         }
 
@@ -172,6 +189,6 @@ fun RegisterScreen(){
 @Preview(showBackground = true)
 @Composable
 fun RegisterScreenPreview(){
-    RegisterScreen()
+    RegisterScreen(rememberNavController())
 
 }

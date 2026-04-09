@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,7 +16,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -23,15 +26,19 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.udeh.markethub.R
 import com.udeh.markethub.ui.theme.newgreen
+import com.udeh.markethub.ui.theme.purple
 
 @Composable
-fun OnboardingScreen(){
+fun OnboardingScreen(navController: NavController){
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().paint(painter = painterResource(R.drawable.abstract_pattern_design_background_2007), contentScale = ContentScale.FillBounds),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
+
 
     ) {
         Image(
@@ -44,11 +51,12 @@ fun OnboardingScreen(){
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            text = "WELCOME TO MARKETHUB",
+            text = "Welcome To MarketHub",
             fontSize = 30.sp,
             fontWeight = FontWeight.Bold,
-            color = newgreen,
-            fontFamily = FontFamily.Cursive
+            color = purple,
+            fontFamily = FontFamily.Serif,
+
         )
 
         Spacer(modifier = Modifier.height(20.dp))
@@ -73,7 +81,8 @@ fun OnboardingScreen(){
             text = "Our e-commerce application is a modern, user-focused platform designed to deliver a seamless and efficient online shopping experience. It allows users to browse a wide range of products, explore detailed descriptions, and make secure purchases with ease. The platform integrates smart search and filtering features to help customers quickly find what they need, while a responsive design ensures smooth performance across all devices. For sellers, it provides tools to manage inventory, track orders, and analyze sales, creating a complete digital marketplace. By combining intuitive design with powerful functionality, the app enhances convenience, improves customer satisfaction, and supports business growth in the digital economy.",
             fontSize = 15.sp,
             fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            modifier =Modifier.padding(start = 25.dp,end = 25.dp)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
@@ -81,11 +90,12 @@ fun OnboardingScreen(){
 
         Button(
             onClick = {},
-            colors = ButtonDefaults.buttonColors(newgreen),
-            shape = RoundedCornerShape(10.dp),
+            colors = ButtonDefaults.buttonColors(purple),
+            shape = RoundedCornerShape(18.dp),
             modifier = Modifier.width(350.dp)
         ) {
-            Text(text = "Get Started")
+            Text(text = "Get Started",
+                )
         }
 
 
@@ -100,6 +110,6 @@ fun OnboardingScreen(){
 @Preview(showBackground = true)
 @Composable
 fun OnboardingScreenPreview(){
-    OnboardingScreen() //The function has to be called for the screen to be viewed
+    OnboardingScreen(rememberNavController()) //The function has to be called for the screen to be viewed
 
 }

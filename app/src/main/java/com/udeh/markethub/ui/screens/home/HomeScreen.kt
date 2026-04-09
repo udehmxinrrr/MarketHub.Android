@@ -23,6 +23,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
@@ -42,13 +43,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.udeh.markethub.R
 import com.udeh.markethub.ui.theme.newgreen
+import com.udeh.markethub.ui.theme.purple
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 
-fun HomeScreen(){
+fun HomeScreen(navController: NavController){
+
+
     Column(
         modifier = Modifier.fillMaxSize()
 
@@ -87,10 +93,10 @@ fun HomeScreen(){
 
         },
             colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = newgreen,
-                navigationIconContentColor = Color.White,
-                titleContentColor = Color.White,
-                actionIconContentColor = Color.White,
+                containerColor = Color.White,
+                navigationIconContentColor = purple,
+                titleContentColor = purple,
+                actionIconContentColor = purple,
             )
         ) //End Of Top App Bar
 
@@ -107,7 +113,15 @@ fun HomeScreen(){
             onValueChange = { search = it },
             modifier = Modifier.padding(start = 20.dp,end = 20.dp). fillMaxWidth(),
             leadingIcon = { Icon(imageVector = Icons.Default.Search, contentDescription = "") },
-            placeholder = { Text(text = "Search for Products") },
+            placeholder = { Text(text = "Search for Products",
+                fontWeight = FontWeight.ExtraBold,
+                color = Color.Black,)},
+            colors = OutlinedTextFieldDefaults.colors(
+                unfocusedBorderColor = Color.Black,
+                focusedBorderColor = purple,
+                unfocusedLeadingIconColor = Color.Black,
+                focusedLeadingIconColor = purple
+            )
 
         )
 
@@ -217,7 +231,7 @@ fun HomeScreen(){
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview(){
-    HomeScreen() //The function has to be called for the screen to be viewed
+    HomeScreen(rememberNavController()) //The function has to be called for the screen to be viewed
 
 }
 
