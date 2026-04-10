@@ -40,6 +40,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.udeh.markethub.R
+import com.udeh.markethub.navigation.ROUT_HOME
+import com.udeh.markethub.navigation.ROUT_REGISTER
 import com.udeh.markethub.ui.theme.newgreen
 import com.udeh.markethub.ui.theme.purple
 
@@ -115,7 +117,7 @@ fun LoginScreen(navController: NavController){
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(
-            onClick = {},
+            onClick = {navController.navigate(ROUT_HOME)},
             colors = ButtonDefaults.buttonColors(purple),
             shape = RoundedCornerShape(18.dp),
             modifier = Modifier.width(350.dp),
@@ -125,7 +127,7 @@ fun LoginScreen(navController: NavController){
             Text(text = "Login")
         }
 
-        TextButton(onClick = {}) {
+        TextButton(onClick = {navController.navigate(ROUT_REGISTER)}) {
             Text(text = "Don't have an Account? Register.",
                 color = purple,
                 fontWeight = FontWeight.ExtraBold,

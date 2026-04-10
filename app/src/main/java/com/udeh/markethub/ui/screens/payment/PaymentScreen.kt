@@ -1,4 +1,4 @@
-package com.udeh.markethub.ui.screens.payments
+package com.udeh.markethub.ui.screens.payment
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,7 +21,7 @@ import com.udeh.markethub.ui.theme.purple
 @OptIn(ExperimentalMaterial3Api::class)
 
 @Composable
-fun AboutScreen (navController: NavController){
+fun PaymentScreen (navController: NavController){
 
 
     Column(
@@ -60,9 +60,7 @@ fun AboutScreen (navController: NavController){
 
 @Preview(showBackground = true)
 @Composable
-fun AboutScreenPreview(
-
-){
-    AboutScreen(rememberNavController())
+fun PaymentScreenPreview()
+    {PaymentScreen(rememberNavController())
 
 }

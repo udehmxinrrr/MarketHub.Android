@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.udeh.markethub.R
+import com.udeh.markethub.navigation.ROUT_REGISTER
 import com.udeh.markethub.ui.theme.newgreen
 import com.udeh.markethub.ui.theme.purple
 
@@ -89,7 +90,7 @@ fun OnboardingScreen(navController: NavController){
 
 
         Button(
-            onClick = {},
+            onClick = { navController.navigate(ROUT_REGISTER) },
             colors = ButtonDefaults.buttonColors(purple),
             shape = RoundedCornerShape(18.dp),
             modifier = Modifier.width(350.dp)
