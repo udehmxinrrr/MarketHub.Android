@@ -10,6 +10,7 @@ import com.udeh.markethub.ui.screens.about.AboutScreen
 import com.udeh.markethub.ui.screens.auth.LoginScreen
 import com.udeh.markethub.ui.screens.auth.RegisterScreen
 import com.udeh.markethub.ui.screens.home.HomeScreen
+import com.udeh.markethub.ui.screens.intent.IntentScreen
 import com.udeh.markethub.ui.screens.onboarding.OnboardingScreen
 import com.udeh.markethub.ui.screens.payment.PaymentScreen
 import com.udeh.markethub.ui.screens.services.ServiceScreen
@@ -47,6 +48,9 @@ fun AppNavHost(
         }
         composable(ROUT_PAYMENT) {
             PaymentScreen(navController)
+        }
+        composable(ROUT_INTENT) {
+            IntentScreen(navController)
         }
 
 

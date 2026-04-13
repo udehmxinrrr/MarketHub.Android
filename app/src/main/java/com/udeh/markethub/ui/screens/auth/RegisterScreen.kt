@@ -68,24 +68,26 @@ fun RegisterScreen(navController: NavController){
             painter = painterResource(R.drawable.heli),
             contentDescription = "product",
             modifier = Modifier.size(100.dp),
-
-            )
-
+        )
         Text(
             text= "Join Us and Start Your Journey Today",
             fontSize = 20.sp,
             fontWeight = FontWeight.ExtraBold,
             color = purple,
+        )
 
-            )
+
+
 
         Spacer(modifier = Modifier.height(20.dp))
-
         //Variables
         var username by remember { mutableStateOf("") }
         var email by remember { mutableStateOf("") }
         var password by remember { mutableStateOf("") }
         var confirmpassword by remember { mutableStateOf("") }
+
+
+
 
         OutlinedTextField(
             value = username,
@@ -101,8 +103,10 @@ fun RegisterScreen(navController: NavController){
                 focusedBorderColor = Color.Black,
                 unfocusedLeadingIconColor = purple,
             )
-
         )
+
+
+
 
         OutlinedTextField(
             value = email,
@@ -118,8 +122,9 @@ fun RegisterScreen(navController: NavController){
                 focusedBorderColor = purple,
                 unfocusedLeadingIconColor = purple,
             )
-
         )
+
+
 
         OutlinedTextField(
             value = password,
@@ -136,8 +141,10 @@ fun RegisterScreen(navController: NavController){
                 unfocusedLeadingIconColor = purple,
             ),
             visualTransformation = PasswordVisualTransformation()
-
         )
+
+
+
 
         OutlinedTextField(
             value = confirmpassword,
@@ -154,28 +161,27 @@ fun RegisterScreen(navController: NavController){
                 unfocusedLeadingIconColor = purple,
             ),
             visualTransformation = PasswordVisualTransformation()
-
         )
-        Spacer(modifier = Modifier.height(20.dp))
 
+
+
+        Spacer(modifier = Modifier.height(20.dp))
         Button(
             onClick = { navController.navigate(ROUT_HOME) },
             colors = ButtonDefaults.buttonColors(purple),
             shape = RoundedCornerShape(18.dp),
             modifier = Modifier.width(350.dp),
-
-
-
         ) {
             Text(text = "Register",
             )
         }
 
+
+
         TextButton(onClick = {navController.navigate(ROUT_LOGIN)}) {
             Text(text = "Already have an Account? Login.",
                 color = purple,
                 fontWeight = FontWeight.ExtraBold,)
-
         }
 
 

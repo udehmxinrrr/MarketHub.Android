@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
@@ -46,6 +47,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.udeh.markethub.R
+import com.udeh.markethub.navigation.ROUT_INTENT
 import com.udeh.markethub.ui.theme.newgreen
 import com.udeh.markethub.ui.theme.purple
 
@@ -85,9 +87,11 @@ fun HomeScreen(navController: NavController){
                     contentDescription = "ShoppingCart"
                 )}
             IconButton(
-                onClick = {}) {
+                onClick = {
+                    navController.navigate(ROUT_INTENT)
+                }) {
                 Icon(
-                    imageVector = Icons.Default.Share,
+                    imageVector = Icons.Default.ArrowForward,
                     contentDescription = "Share"
                 )}
 
@@ -138,14 +142,11 @@ fun HomeScreen(navController: NavController){
 
         )
 
+
+
+
+        //Row in the categories section
         Spacer(modifier = Modifier.height(20.dp))
-
-
-
-
-
-
-            //Row in the categories section
         Row(
             modifier =Modifier.padding(start = 20.dp,end = 20.dp).horizontalScroll(
                 rememberScrollState()

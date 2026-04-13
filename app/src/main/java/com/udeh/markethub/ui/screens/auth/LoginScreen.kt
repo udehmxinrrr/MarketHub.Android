@@ -114,18 +114,20 @@ fun LoginScreen(navController: NavController){
             visualTransformation = PasswordVisualTransformation()
 
         )
-        Spacer(modifier = Modifier.height(20.dp))
 
+
+        Spacer(modifier = Modifier.height(20.dp))
         Button(
             onClick = {navController.navigate(ROUT_HOME)},
             colors = ButtonDefaults.buttonColors(purple),
             shape = RoundedCornerShape(18.dp),
             modifier = Modifier.width(350.dp),
-
-
             ) {
             Text(text = "Login")
         }
+
+
+
 
         TextButton(onClick = {navController.navigate(ROUT_REGISTER)}) {
             Text(text = "Don't have an Account? Register.",

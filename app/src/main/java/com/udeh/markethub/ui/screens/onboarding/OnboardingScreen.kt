@@ -76,8 +76,8 @@ fun OnboardingScreen(navController: NavController){
             fontWeight = FontWeight.Bold
         )
 
+        
         Spacer(modifier = Modifier.height(20.dp))
-
         Text(
             text = "Our e-commerce application is a modern, user-focused platform designed to deliver a seamless and efficient online shopping experience. It allows users to browse a wide range of products, explore detailed descriptions, and make secure purchases with ease. The platform integrates smart search and filtering features to help customers quickly find what they need, while a responsive design ensures smooth performance across all devices. For sellers, it provides tools to manage inventory, track orders, and analyze sales, creating a complete digital marketplace. By combining intuitive design with powerful functionality, the app enhances convenience, improves customer satisfaction, and supports business growth in the digital economy.",
             fontSize = 15.sp,
@@ -86,9 +86,9 @@ fun OnboardingScreen(navController: NavController){
             modifier =Modifier.padding(start = 25.dp,end = 25.dp)
         )
 
+
+
         Spacer(modifier = Modifier.height(20.dp))
-
-
         Button(
             onClick = { navController.navigate(ROUT_REGISTER) },
             colors = ButtonDefaults.buttonColors(purple),
