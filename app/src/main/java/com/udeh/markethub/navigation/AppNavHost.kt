@@ -13,14 +13,16 @@ import com.udeh.markethub.ui.screens.home.HomeScreen
 import com.udeh.markethub.ui.screens.intent.IntentScreen
 import com.udeh.markethub.ui.screens.onboarding.OnboardingScreen
 import com.udeh.markethub.ui.screens.payment.PaymentScreen
+import com.udeh.markethub.ui.screens.scaffold.ScaffoldScreen
 import com.udeh.markethub.ui.screens.services.ServiceScreen
+import com.udeh.markethub.ui.screens.splash.SplashScreen
 
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_ONBOARDING
+    startDestination: String = ROUT_SPLASH
 ) {
 
     NavHost(
@@ -51,6 +53,12 @@ fun AppNavHost(
         }
         composable(ROUT_INTENT) {
             IntentScreen(navController)
+        }
+        composable(ROUT_SPLASH) {
+            SplashScreen(navController)
+        }
+        composable(ROUT_SCAFFOLD) {
+            ScaffoldScreen(navController)
         }
 
 

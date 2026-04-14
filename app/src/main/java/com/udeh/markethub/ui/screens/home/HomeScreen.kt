@@ -73,6 +73,8 @@ fun HomeScreen(navController: NavController){
                     ) }
             },
 
+
+
         actions = {
             IconButton(
                 onClick = {}) {
@@ -128,8 +130,10 @@ fun HomeScreen(navController: NavController){
             )
 
         )
-
         //End of Search Bar
+
+
+
 
         Spacer(modifier = Modifier.height(20.dp))
 
