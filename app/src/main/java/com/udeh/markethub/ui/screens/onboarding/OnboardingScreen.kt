@@ -36,14 +36,14 @@ import com.udeh.markethub.ui.theme.purple
 @Composable
 fun OnboardingScreen(navController: NavController){
     Column(
-        modifier = Modifier.fillMaxSize().paint(painter = painterResource(R.drawable.abstract_pattern_design_background_2007), contentScale = ContentScale.FillBounds),
+        modifier = Modifier.fillMaxSize().paint(painter = painterResource(R.drawable.background), contentScale = ContentScale.FillBounds),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
 
 
     ) {
         Image(
-            painter = painterResource(R.drawable.heli),
+            painter = painterResource(R.drawable.m),
             contentDescription = "product",
             modifier = Modifier.size(100.dp),
 

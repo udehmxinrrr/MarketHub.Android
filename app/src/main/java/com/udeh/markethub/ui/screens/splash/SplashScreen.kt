@@ -60,22 +60,24 @@ fun SplashScreen (navController: NavController){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(purple),
+            .paint(painter = painterResource(R.drawable.background), contentScale = ContentScale.FillBounds),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
 
     ) {
         Image(
-            painter = painterResource(R.drawable.heli),
+            painter = painterResource(R.drawable.m),
             contentDescription = "product",
             modifier = Modifier.size(100.dp),
+
 
             )
 
         Text(
             text = "Market Hub",
             fontSize = 20.sp,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            color = purple,
         )
 
     }
