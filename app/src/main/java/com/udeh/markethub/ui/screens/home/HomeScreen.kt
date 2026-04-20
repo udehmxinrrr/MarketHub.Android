@@ -117,7 +117,8 @@ fun HomeScreen(navController: NavController){
         OutlinedTextField(
             value = search,
             onValueChange = { search = it },
-            modifier = Modifier.padding(start = 20.dp,end = 20.dp). fillMaxWidth(),
+            modifier = Modifier
+                .padding(start = 20.dp,end = 20.dp). fillMaxWidth(),
             leadingIcon = { Icon(imageVector = Icons.Default.Search, contentDescription = "") },
             placeholder = { Text(text = "Search for Products",
                 fontWeight = FontWeight.ExtraBold,

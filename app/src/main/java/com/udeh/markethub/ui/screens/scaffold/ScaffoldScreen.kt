@@ -9,10 +9,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -35,6 +38,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.udeh.markethub.navigation.ROUT_HOME
+import com.udeh.markethub.navigation.ROUT_INTENT
 import com.udeh.markethub.ui.theme.purple
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -49,13 +54,10 @@ fun ScaffoldScreen (navController: NavController){
     Scaffold(
 
 
-
-
-
         //TopBar
         topBar = {
             TopAppBar(
-                title = { Text("Contact Screen") },
+                title = { Text("Scaffold Screen") },
                 navigationIcon = {
                     IconButton(onClick = { /* Handle back/nav */ }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back")
@@ -66,8 +68,13 @@ fun ScaffoldScreen (navController: NavController){
                     titleContentColor = Color.White,
                     navigationIconContentColor = Color.White
                 )
+
+
             )
+            
         },
+
+
 
 
 
@@ -79,37 +86,30 @@ fun ScaffoldScreen (navController: NavController){
                 containerColor = Color.White
             ){
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
-                    label = { Text("Home") },
+                    icon = { Icon(Icons.Default.Home, contentDescription = "Home", tint = purple) },
+                    label = { Text("Home", color = purple) },
                     selected = selectedIndex == 0,
                     onClick = { selectedIndex = 0
-                        //navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_HOME)
                     }
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Favorite, contentDescription = "Favorites") },
-                    label = { Text("Favorites") },
+                    icon = { Icon(Icons.Default.Favorite, contentDescription = "Favorites",tint = purple) },
+                    label = { Text("Favorites", color = purple) },
                     selected = selectedIndex == 1,
                     onClick = { selectedIndex = 1
                         // navController.navigate(ROUT_HOME)
                     }
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-                    label = { Text("Profile") },
+                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile",tint = purple) },
+                    label = { Text("Profile", color = purple) },
                     selected = selectedIndex == 2,
                     onClick = { selectedIndex = 2
                         //  navController.navigate(ROUT_HOME)
                     }
                 )
-                NavigationBarItem(
-                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-                    label = { Text("Profile") },
-                    selected = selectedIndex == 2,
-                    onClick = { selectedIndex = 2
-                        //  navController.navigate(ROUT_HOME)
-                    }
-                )
+
 
             }
         },
@@ -121,11 +121,14 @@ fun ScaffoldScreen (navController: NavController){
         floatingActionButton = {
             FloatingActionButton(
                 onClick = { /* Add action */ },
-                containerColor = Color.White
+                containerColor = purple
             ) {
-                Icon(Icons.Default.Add, contentDescription = "Add")
+                Icon(Icons.Default.Add, contentDescription = "Add", tint = Color.White)
             }
         },
+
+
+        //Content
         content = { paddingValues ->
             Column(
                 modifier = Modifier
@@ -133,9 +136,7 @@ fun ScaffoldScreen (navController: NavController){
                     .fillMaxSize()
             ) {
                 //Main Contents of the page
-                Text(text = "Welcome to Homescreen Screen", fontSize = 20.sp)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text("This is where the main content goes.")
+
 
             }
         }
