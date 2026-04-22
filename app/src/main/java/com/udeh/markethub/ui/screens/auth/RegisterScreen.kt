@@ -35,6 +35,7 @@ import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -46,6 +47,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.udeh.markethub.R
+import com.udeh.markethub.data.AuthViewModel
 import com.udeh.markethub.navigation.ROUT_HOME
 import com.udeh.markethub.navigation.ROUT_LOGIN
 import com.udeh.markethub.ui.theme.newgreen
@@ -166,8 +168,10 @@ fun RegisterScreen(navController: NavController){
 
 
         Spacer(modifier = Modifier.height(20.dp))
+        val context = LocalContext.current
+        val authViewModel = AuthViewModel(navController, context)
         Button(
-            onClick = { navController.navigate(ROUT_HOME) },
+            onClick = { authViewModel.signup(username, email, password,confirmpassword) },
             colors = ButtonDefaults.buttonColors(purple),
             shape = RoundedCornerShape(18.dp),
             modifier = Modifier.width(350.dp),

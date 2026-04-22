@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "564235944733",
+    "project_id": "markethub-a88df",
+    "storage_bucket": "markethub-a88df.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564235944733:android:b318a4fb1dfd68561557f4",
+        "android_client_info": {
+          "package_name": "com.udeh.markethub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWOK6lUuTQQOtpBBVNiGOeAMsF2-KLwAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
