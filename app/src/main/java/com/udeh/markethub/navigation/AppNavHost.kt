@@ -1,11 +1,15 @@
 package com.udeh.markethub.navigation
 
+import android.R.attr.type
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.udeh.markethub.ui.screens.about.AboutScreen
 import com.udeh.markethub.ui.screens.auth.LoginScreen
 import com.udeh.markethub.ui.screens.auth.RegisterScreen
@@ -13,6 +17,9 @@ import com.udeh.markethub.ui.screens.home.HomeScreen
 import com.udeh.markethub.ui.screens.intent.IntentScreen
 import com.udeh.markethub.ui.screens.onboarding.OnboardingScreen
 import com.udeh.markethub.ui.screens.payment.PaymentScreen
+import com.udeh.markethub.ui.screens.products.AddProductScreen
+import com.udeh.markethub.ui.screens.products.UpdateProductScreen
+import com.udeh.markethub.ui.screens.products.ViewProductScreen
 import com.udeh.markethub.ui.screens.scaffold.ScaffoldScreen
 import com.udeh.markethub.ui.screens.services.ServiceScreen
 import com.udeh.markethub.ui.screens.splash.SplashScreen
@@ -22,7 +29,7 @@ import com.udeh.markethub.ui.screens.splash.SplashScreen
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_SPLASH
+    startDestination: String = ROUT_SPLASH,
 ) {
 
     NavHost(
@@ -60,10 +67,23 @@ fun AppNavHost(
         composable(ROUT_SCAFFOLD) {
             ScaffoldScreen(navController)
         }
+        composable(ROUTE_ADD_PRODUCT) { AddProductScreen(navController) }
+
+        composable(ROUTE_VIEW_PRODUCTS) { ViewProductScreen(navController) }
+
+        composable(
+            ROUTE_UPDATE_PRODUCT,
+            arguments = listOf(navArgument("productId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val productId = backStackEntry.arguments?.getString("productId")!!
+            UpdateProductScreen(navController, productId)
+
+
+        }
+
 
 
     }
 }
-
 
 
