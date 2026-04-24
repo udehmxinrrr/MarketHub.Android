@@ -97,6 +97,7 @@ fun ViewProductScreen(navController: NavController) {
                 .fillMaxSize()
         ) {
 
+            // This is a scrollable column
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
